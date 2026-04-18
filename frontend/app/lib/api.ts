@@ -81,7 +81,9 @@ export async function authLogout() {
 
 
 
-
+export async function getRepairStep(sessionId: string, optionData: any, stepIndex: number) {
+  return request<any>('/api/analysis/repair-step', { method: 'POST', body: JSON.stringify({ sessionId, optionData, stepIndex }) });
+}
 
 export async function completeAction(co2Avoided: number, itemsSaved = 1) {
   return request<any>('/api/analysis/complete', { method: 'POST', body: JSON.stringify({ co2Avoided, itemsSaved }) }).catch(() => {});
