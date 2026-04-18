@@ -66,6 +66,10 @@ export async function authRegister(name: string, email: string, password: string
   return request<any>('/api/auth/register', { method: 'POST', body: JSON.stringify({ name, email, password }) });
 }
 
+export async function authMe() {
+  return request<any>('/api/auth/me');
+}
+
 export async function authLogin(email: string, password: string) {
   return request<any>('/api/auth/login', { method: 'POST', body: JSON.stringify({ email, password }) });
 }
