@@ -79,7 +79,9 @@ export async function authLogout() {
 }
 
 
-
+export async function analyzeItem(imageBase64: string, userMessage: string, sessionId?: string) {
+  return request<any>('/api/analysis/analyze', { method: 'POST', body: JSON.stringify({ imageBase64, mimeType: 'image/jpeg', userMessage, sessionId }) });
+}
 
 export async function getRepairStep(sessionId: string, optionData: any, stepIndex: number) {
   return request<any>('/api/analysis/repair-step', { method: 'POST', body: JSON.stringify({ sessionId, optionData, stepIndex }) });
